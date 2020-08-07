@@ -14,7 +14,7 @@ class CreateImagesStudent extends Migration
     public function up()
     {
         Schema::table('student', function (Blueprint $table) {
-            $table->string('images')->after('full_name');
+            $table->string('images')->after('full_name')->nullable();
         });
     }
 

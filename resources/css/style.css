@@ -1,0 +1,38 @@
+.images-studen{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    object-fit: cover;
+}
+.name{
+    text-align: left;
+    float: none;
+    font-size: 20px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    border-bottom: 2px solid rgb(203 203 203 / 38%);
+}
+
+.button-fix{
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 15px;
+}
+.form-create{
+    width: 50%;
+    margin: auto;
+
+}
+.text-create{
+    text-transform: uppercase;
+    font-size: 50px;
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+.alert-error{
+    position: fixed;
+    top:50%;
+}

@@ -23,7 +23,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="../../index3.html" class="nav-link">Home</a>
+                <a href="{{route('admin.index')}}" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Contact</a>
@@ -170,7 +170,7 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
+                        <a href="" class="nav-link active">
                             <i class="nav-icon fas fa-copy"></i>
                             <p>
                                Home
@@ -180,9 +180,9 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="../layout/collapsed-sidebar.html" class="nav-link">
+                                <a href="{{url('admin/create')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
-                                    <p>broad</p>
+                                    <p>Create Student</p>
                                 </a>
                             </li>
                         </ul>
@@ -200,12 +200,12 @@
     </div>
     <!-- /.content-wrapper -->
 
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.1.0-pre
-        </div>
-        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </footer>
+{{--    <footer class="main-footer">--}}
+{{--        <div class="float-right d-none d-sm-block">--}}
+{{--            <b>Version</b> 3.1.0-pre--}}
+{{--        </div>--}}
+{{--        <strong>Copyright &copy; 2014-2020 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.--}}
+{{--    </footer>--}}
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">

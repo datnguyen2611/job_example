@@ -18,8 +18,8 @@ class CreateStudent extends Migration
             $table->string('full_name');
             $table->string('email')->unique();
             $table->boolean('gender');
-            $table->timestamp('date_of_birth');
-            $table->integer('country_code');
+            $table->date('date_of_birth');
+            $table->integer('country_id');
             $table->timestamps();
         });
     }

@@ -9,10 +9,10 @@ class Student extends Model
 
     protected $table='student';
     protected $fillable =[
-        'full_name','email','gender','date_of_birth','country_code'
+        'full_name','images','email','gender','date_of_birth','country_id'
     ];
 
     public function countries(){
-        $this->belongsTo(Country::class);
+        return $this->belongsTo(Country::class,'country_id');
     }
 }

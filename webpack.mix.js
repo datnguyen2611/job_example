@@ -17,11 +17,13 @@ mix.js(
     .sass('resources/sass/app.scss', 'public/css');
 mix.styles([
     'resources/css/fonts/all.min.css',
-    'resources/css/adminlte.min.css'
+    'resources/css/adminlte.min.css',
+    'resources/css/style.css'
 ], 'public/css/all.css');
 mix.scripts([
     'resources/js/jquery.js',
    'resources/js/admin/bootstrap.bundle.min.js',
    'resources/js/admin/adminlte.min.js',
-    'resources/js/admin/demo.js'
+    'resources/js/admin/demo.js',
+    'resources/js/style.js'
 ], 'public/js/all.js');

@@ -457,3 +457,7 @@
     $(this).addClass('active')
   })
 })(jQuery)
+
+$(document).ready(function() {
+    $('.mdb-select').materialSelect();
+});
