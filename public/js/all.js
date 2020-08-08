@@ -458,6 +458,3 @@
   })
 })(jQuery)
 
-$(document).ready(function() {
-    $('.mdb-select').materialSelect();
-});

@@ -103,6 +103,8 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $students = Student::findOrfail($id);
+        $students->delete();
+        return redirect('/admin');
     }
 }
