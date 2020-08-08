@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1 class="text-create">Create form</h1>
+    <h1 class="text-create">Update form</h1>
     <form class="form-create"  action="{{route('admin.store')}}" method="POST" enctype="multipart/form-data" >
         @csrf
         {{csrf_field()}}
@@ -32,19 +32,18 @@
             <label for="inputAddress">country code</label>
             <select class="custom-select" id="gender2" name="country_code">
                 <option selected>Choose code</option>
-                @foreach($countries as $country)
-                    <option value="{{$country->id}}">{{$country->name}}</option>
-                @endforeach
+{{--                @foreach($students as $student)--}}
+                    <option value="{{$students->countries->id}}">{{$students->countries->name}}</option>
+{{--                @endforeach--}}
 
             </select>
         </div>
         <div class="form-group">
             <div class="custom-file">
-                <label class="custom-file-label" for="customFileLang">images</label>
                 <input name="images" type="file" class="custom-file-input" id="customFileLang" lang="es">
-
+                <label class="custom-file-label" for="customFileLang"></label>
             </div>
-{{--            <input type="file" name="images">--}}
+            {{--            <input type="file" name="images">--}}
         </div>
         <div class="form-group">
             <div class="custom-file">

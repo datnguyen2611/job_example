@@ -80,7 +80,8 @@ class AdminUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $students = Student::findOrFail($id);
+        return view('admin.edit',compact('students'));
     }
 
     /**

@@ -12,7 +12,7 @@
                        <div class="card-body">
                            <img class="images-studen img img-fluid" src="images/{{$student->images}}" alt="">
                            <div class="form-button">
-                               <a href="{{url('admin/'.$student->id)}}" class="btn btn-primary button-fix">Chỉnh Sửa</a>
+                               <a href="{{url('admin/'.$student->id.'/edit')}}" class="btn btn-primary button-fix">Chỉnh Sửa</a>
                                <form action="{{url('admin/'.$student->id)}}" class="delete-method" method="POST">
                                    {{csrf_field()}}
                                    {{method_field('DELETE')}}
