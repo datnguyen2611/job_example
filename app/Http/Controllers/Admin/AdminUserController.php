@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Country;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateStudentRequest;
+use App\Http\Requests\EditRequest;
 use App\Student;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+        $students = Student::orderByDesc('created_at')->paginate(3);
+
         return view('admin.index', compact('students'));
     }
 
@@ -92,9 +94,11 @@ class AdminUserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditRequest $request, $id)
     {
-//        $getRequest = $request->whereId($id);
+//        dd($request->images);
+        $stundent = Student::findOrFail($id);
+        $getRequest = $request->all();
         if (!$request->hasFile('images')) {
             $request['images'] = 'default.png';
 
@@ -102,7 +106,7 @@ class AdminUserController extends Controller
         $name = $request->file('images')->getClientOriginalName();
         $request->file('images')->move('images', $name);
         $request['images'] = $name;
-        $upload = Student::update([
+        $upload =([
             'images'=>$name,
             'full_name' =>$request['full_name'],
             'email' => $request['email'],
@@ -110,7 +114,8 @@ class AdminUserController extends Controller
             'date_of_birth' => $request['birth-date'],
             'country_id' => $request['country_code']
         ]);
-        return redirect('admin');
+        $stundent->update($upload);
+        return redirect('admin')->with('success', 'your item has been update');
     }
 
     /**

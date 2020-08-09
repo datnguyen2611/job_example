@@ -15,10 +15,6 @@
                 <input name="email" class="form-control" id="inputEmail4" placeholder="email">
             </div>
         </div>
-        <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input name="address" type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-        </div>
         <select class="custom-select" id="gender2" name="gender">
             <option selected>Choose...</option>
             <option value="0">Male</option>
@@ -40,9 +36,7 @@
         </div>
         <div class="form-group">
             <div class="custom-file">
-                <label class="custom-file-label" for="customFileLang">images</label>
-                <input name="images" type="file" class="custom-file-input" id="customFileLang" lang="es">
-
+                <input type="file" name="images">
             </div>
 {{--            <input type="file" name="images">--}}
         </div>
@@ -55,7 +49,7 @@
     </form>
     <div class="row">
         <div class="alert alert-danger alert-error">
-            <ul>
+            <ul class="error-list">
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach

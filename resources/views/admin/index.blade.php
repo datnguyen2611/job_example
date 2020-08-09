@@ -4,8 +4,20 @@
     <h1  class="text-create">
         Home
     </h1>
+
+    <div class="alert-success-update">
+        @if (\Session::has('success'))
+            <div class="alert alert-success">
+                <div class="remove-success">x</div>
+                <ul>
+                    <li>{!! \Session::get('success') !!}</li>
+                </ul>
+            </div>
+        @endif
+    </div>
    <div class="container">
        <div class="row">
+
            @foreach($students as $student)
                <div class="col-md-4">
                    <div class="card" style="width: 18rem;">
@@ -20,6 +32,8 @@
                                </form>
                            </div>
                            <h5 class="card-title name">Họ và tên: {{$student->full_name}}</h5>
+                           <h5 class="card-title name">Email: {{$student->email}}</h5>
+                           <h5 class="card-title name">Giới tính: {{$student->gender ==0 ?"Nam" :"Nữ"}}</h5>
                            <h5 class="card-title name">Năm sinh: {{date('d-m-Y', strtotime($student->date_of_birth))}}</h5>
                            <h5 class="card-title name">Quê Quán: {{$student->countries->name}}</h5>
 
@@ -30,4 +44,7 @@
 
        </div>
    </div>
+    <div class="pagination-page">
+        {!!$students->links()!!}
+    </div>
 @endsection

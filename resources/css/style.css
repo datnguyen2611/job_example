@@ -1,4 +1,4 @@
-.images-studen{
+.images-studen {
     border-radius: 50%;
     width: 100px;
     height: 100px;
@@ -6,7 +6,8 @@
     transform: translateX(-50%);
     object-fit: cover;
 }
-.name{
+
+.name {
     text-align: left;
     float: none;
     font-size: 20px;
@@ -20,27 +21,49 @@
 /*    transform: translateX(-50%);*/
 /*    margin-top: 15px;*/
 /*}*/
-.form-create{
+.form-create {
     width: 50%;
     margin: auto;
 
 }
-.text-create{
+
+.text-create {
     text-transform: uppercase;
     font-size: 50px;
     text-align: center;
     padding-bottom: 50px;
     padding-top: 50px;
 }
-.alert-error{
+
+.alert-error {
     position: fixed;
-    top:50%;
+    top: 50%;
 }
-.form-button{
+
+.form-button {
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.delete-method{
+
+.delete-method {
     display: inline-block;
 }
+
+.remove-success {
+    position: absolute;
+    right: 10%;
+    border: 1px solid;
+    padding: 0 5px 0 5px;
+    border-radius: 5px;
+}
+
+.pagination {
+    justify-content: center;
+    margin: auto;
+}
+
+.alert-error , .error-list{
+    transition: 1s ease-in;
+}
+
