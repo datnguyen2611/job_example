@@ -30,18 +30,18 @@
         </div>
         <div class="form-group">
             <label for="inputAddress">country code</label>
-            <select class="custom-select" id="gender2" name="country_code">
-                <option selected>Choose code</option>
-{{--                @foreach($students as $student)--}}
-                    <option value="{{$students->countries->id}}">{{$students->countries->name}}</option>
-{{--                @endforeach--}}
-
+            <select class="custom-select" id="gender2" name="country_code" >
+                <option selected value=""></option>
+                   @foreach($countries as $country)
+                    <option value="{{$country->id}}">{{$country->code}}({{$country->name}})</option>
+                    @endforeach
             </select>
         </div>
         <div class="form-group">
             <div class="custom-file">
                 <input name="images" type="file" class="custom-file-input" id="customFileLang" lang="es">
                 <label class="custom-file-label" for="customFileLang"></label>
+                <img src="{{url('/images/'.$students->images)}}" alt="" width="100px" height="100px">
             </div>
             {{--            <input type="file" name="images">--}}
         </div>

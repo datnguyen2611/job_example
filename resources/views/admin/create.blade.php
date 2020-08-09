@@ -33,7 +33,7 @@
             <select class="custom-select" id="gender2" name="country_code">
                 <option selected>Choose code</option>
                 @foreach($countries as $country)
-                    <option value="{{$country->id}}">{{$country->name}}</option>
+                    <option value="{{$country->id}}">{{$country->code}}({{$country->name}})</option>
                 @endforeach
 
             </select>

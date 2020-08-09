@@ -18,6 +18,7 @@ class StudenSeeder extends Seeder
                 'gender' =>'0',
                 'date_of_birth' =>'2010/09/10',
                 'country_id' =>'2',
+                'images' =>'default.png'
             ],
             [
                 'full_name' => 'Nguyen van B',
@@ -25,6 +26,7 @@ class StudenSeeder extends Seeder
                 'gender' =>'0',
                 'date_of_birth' =>'2010/09/10',
                 'country_id' =>'1',
+                'images' =>'default.png'
             ],
             [
                 'full_name' => 'Nguyen nam C',
@@ -32,6 +34,7 @@ class StudenSeeder extends Seeder
                 'gender' =>'0',
                 'date_of_birth' =>'2010/09/10',
                 'country_id' =>'1',
+                'images' =>'default.png'
             ],
         ]);
     }

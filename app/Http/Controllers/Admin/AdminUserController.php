@@ -81,7 +81,8 @@ class AdminUserController extends Controller
     public function edit($id)
     {
         $students = Student::findOrFail($id);
-        return view('admin.edit',compact('students'));
+        $countries =Country::all();
+        return view('admin.edit',compact(['students','countries']));
     }
 
     /**
@@ -93,7 +94,23 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        $getRequest = $request->whereId($id);
+        if (!$request->hasFile('images')) {
+            $request['images'] = 'default.png';
 
+        }
+        $name = $request->file('images')->getClientOriginalName();
+        $request->file('images')->move('images', $name);
+        $request['images'] = $name;
+        $upload = Student::update([
+            'images'=>$name,
+            'full_name' =>$request['full_name'],
+            'email' => $request['email'],
+            'gender' =>$request['gender'],
+            'date_of_birth' => $request['birth-date'],
+            'country_id' => $request['country_code']
+        ]);
+        return redirect('admin');
     }
 
     /**
