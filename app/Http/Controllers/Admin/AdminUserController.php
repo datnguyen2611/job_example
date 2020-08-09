@@ -8,6 +8,7 @@ use App\Http\Requests\CreateStudentRequest;
 use App\Http\Requests\EditRequest;
 use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminUserController extends Controller
 {
@@ -22,6 +23,71 @@ class AdminUserController extends Controller
 
         return view('admin.index', compact('students'));
     }
+
+    public function action(Request $request)
+    {
+//        $search = $request->get('search');
+//        $data = Student::where('full_name', 'like', '%' . $search . '%')
+////                    ->orWhere('email', 'like', '%' . $search . '%')
+//                    ->orderBy('id', 'desc')
+//                    ->get();
+//        return json_decode($data);
+//
+            $query = $request->get('search');
+            if ($query != '') {
+                $data = Student::where('full_name', 'like', '%' . $query . '%')
+//                    ->orWhere('email', 'like', '%' . $query . '%')
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+
+            } else {
+                $data = DB::table('student')->orderBy('created_at', 'desc')->get();
+
+            }
+            $total_row = $data->count();
+            if ($total_row > 0) {
+                $output = '';
+                foreach ($data as $row) {
+
+                    $output .= '  <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <img class="images-studen img img-fluid" src="images/{{$student->images}}" alt="">
+                            <div class="form-button">
+                                <a href="{{url('.'.admin/'.'.$student->id.'.'/edit'.')}}" class="btn btn-primary button-fix">Chỉnh
+                                    Sửa</a>
+                                <form action="{{url('.'.admin/'.'.$student->id)}}" class="delete-method" method="POST">
+                                    {{csrf_field()}}
+                                    {{method_field('.'DELETE'.')}}
+                                    <input type="submit" name="submit" class="btn btn-primary button-fix delete-form"
+                                           onclick="return confirm(\'Are you sure?\')" value="xóa">
+                                </form>
+                            </div>
+                            <h5 class="card-title name">Họ và tên: {{$student->full_name}}</h5>
+                            <h5 class="card-title name">Email: {{$student->email}}</h5>
+                            <h5 class="card-title name">Giới tính: {{$student->gender ==0 ?"Nam" :"Nữ"}}</h5>
+                            <h5 class="card-title name">Năm
+                                sinh: {{date(\'d-m-Y\', strtotime($student->date_of_birth))}}</h5>
+                            <h5 class="card-title name">Quê Quán: {{$student->countries->name}}</h5>
+
+                        </div>
+                    </div>
+                </div>';
+                }
+            } else {
+                $output =
+                    '<tr><td align="center" colspan="5">
+                    No data Found
+                    </td></tr>';
+            }
+            $data = [
+                'table_data' => $output,
+            ];
+
+            echo json_encode($data);
+
+        }
+
 
     /**
      * Show the form for creating a new resource.
@@ -51,10 +117,10 @@ class AdminUserController extends Controller
         $request->file('images')->move('images', $name);
         $request['images'] = $name;
         $upload = Student::create([
-            'images'=>$name,
-            'full_name' =>$request['full_name'],
+            'images' => $name,
+            'full_name' => $request['full_name'],
             'email' => $request['email'],
-            'gender' =>$request['gender'],
+            'gender' => $request['gender'],
             'date_of_birth' => $request['birth-date'],
             'country_id' => $request['country_code']
         ]);
@@ -83,8 +149,8 @@ class AdminUserController extends Controller
     public function edit($id)
     {
         $students = Student::findOrFail($id);
-        $countries =Country::all();
-        return view('admin.edit',compact(['students','countries']));
+        $countries = Country::all();
+        return view('admin.edit', compact(['students', 'countries']));
     }
 
     /**
@@ -106,11 +172,11 @@ class AdminUserController extends Controller
         $name = $request->file('images')->getClientOriginalName();
         $request->file('images')->move('images', $name);
         $request['images'] = $name;
-        $upload =([
-            'images'=>$name,
-            'full_name' =>$request['full_name'],
+        $upload = ([
+            'images' => $name,
+            'full_name' => $request['full_name'],
             'email' => $request['email'],
-            'gender' =>$request['gender'],
+            'gender' => $request['gender'],
             'date_of_birth' => $request['birth-date'],
             'country_id' => $request['country_code']
         ]);
