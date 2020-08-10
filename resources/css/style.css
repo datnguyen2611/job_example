@@ -66,4 +66,9 @@
 .alert-error , .error-list{
     transition: 1s ease-in;
 }
+.pagination-page{
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+}
 

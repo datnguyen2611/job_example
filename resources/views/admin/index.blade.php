@@ -74,7 +74,7 @@
         $('body').on('keyup', '#search', function () {
             var search = $(this).val();
             $.ajax({
-                method: "POST",
+                method: "GET",
                 url: "{{route('search')}}",
                 dataType: 'json',
                 data: {
@@ -95,7 +95,6 @@
                     $('#dyamic-popup').html('');
                     $.each(res, function (index, value) {
                         tableRow =
-                            // '<div class="row">'+
                             '<div class="col-md-4">' +
                             '                   <div class="card" style="width: 18rem;">' +
                             '                       <div class="card-body">' +
@@ -112,13 +111,12 @@
                         '                           <h5 class="card-title name">Email: '+value.email+'</h5>' +
                         '                           <h5 class="card-title name">Giới tính: '+ check_gender(value.gender)+'</h5>'+
                             '                           <h5 class="card-title name">Năm sinh:'+value.date_of_birth+' </h5>' +
-                            '                           <h5 class="card-title name">Quê Quán: '+value.country_id+'</h5>' +
+                            // '                           <h5 class="card-title name">Quê Quán: '+value.country_id+'</h5>' +
                             '                       </div>' +
                             '                   </div>' +
-                            // '               </div>'+
                      '</div>'   ;
                         $('#dyamic-popup').append(tableRow);
-                        console.log(tableRow);
+                        // console.log(res);
                     });
                 }
             });

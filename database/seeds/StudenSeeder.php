@@ -17,7 +17,7 @@ class StudenSeeder extends Seeder
                 'full_name' => Str::random(10),
                 'email' => Str::random(10) . '@gmail.com',
                 'gender' => rand(0, 1),
-                'date_of_birth' => rand(1990, 2010) . '/' . rand(1, 12) . '/' . rand(1, 30),
+                'date_of_birth' => rand(1990, 2010) . '/' . rand(01, 12) . '/' . rand(1, 30),
                 'country_id' => rand(1, 10),
                 'images' => 'default.png',
                 'created_at' => date('Y-m-d H:i:s'),
