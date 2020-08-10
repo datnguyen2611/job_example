@@ -11,15 +11,20 @@ class StudenSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('student')->insert([
-            [
-                'full_name' => Str::random(20),
-                'email'=>Str::random(20).'@gmail.com',
-                'gender' =>rand(0,1),
-                'date_of_birth' =>rand(1990,2010).'/'.rand(1,12).'/'.rand(1,30),
-                'country_id' =>rand(1,10),
-                'images' =>'default.png'
-            ],
-        ]);
+
+        for ($i = 0; $i < 50; $i++) {
+            DB::table('student')->insert([
+                'full_name' => Str::random(10),
+                'email' => Str::random(10) . '@gmail.com',
+                'gender' => rand(0, 1),
+                'date_of_birth' => rand(1990, 2010) . '/' . rand(1, 12) . '/' . rand(1, 30),
+                'country_id' => rand(1, 10),
+                'images' => 'default.png',
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+
+            ]);
+
+        }
     }
 }

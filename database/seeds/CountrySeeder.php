@@ -48,6 +48,30 @@ class CountrySeeder extends Seeder
                 'code' => 'HP',
                 'continent_name' =>'vietnam'
             ],
+            [
+                'id' =>'7',
+                'name' =>'Nghệ An',
+                'code' => 'NA',
+                'continent_name' =>'vietnam'
+            ],
+            [
+                'id' =>'8',
+                'name' =>'Thanh hóa',
+                'code' => 'TH',
+                'continent_name' =>'vietnam'
+            ],
+            [
+                'id' =>'9',
+                'name' =>'Huế',
+                'code' => 'HU',
+                'continent_name' =>'vietnam'
+            ],
+            [
+                'id' =>'10',
+                'name' =>'Yên bái',
+                'code' => 'YB',
+                'continent_name' =>'vietnam'
+            ],
         ]);
     }
 }
