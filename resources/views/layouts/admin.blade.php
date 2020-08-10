@@ -7,6 +7,7 @@
     <title>AdminLTE 3 | Fixed Footer Layout</title>
 
     <!-- Google Font: Source Sans Pro -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

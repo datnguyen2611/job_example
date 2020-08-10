@@ -8,6 +8,7 @@ use App\Http\Requests\CreateStudentRequest;
 use App\Http\Requests\EditRequest;
 use App\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminUserController extends Controller
 {
@@ -18,10 +19,21 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $students = Student::orderByDesc('created_at')->paginate(3);
+        $students = Student::all();
 
         return view('admin.index', compact('students'));
     }
+
+    public function action(Request $request)
+    {
+        $search = $request->get('search');
+        $data = Student::where('full_name', 'like', '%' . $search . '%')
+//                    ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orderBy('id', 'desc')
+                    ->get();
+        return json_decode($data);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -51,10 +63,10 @@ class AdminUserController extends Controller
         $request->file('images')->move('images', $name);
         $request['images'] = $name;
         $upload = Student::create([
-            'images'=>$name,
-            'full_name' =>$request['full_name'],
+            'images' => $name,
+            'full_name' => $request['full_name'],
             'email' => $request['email'],
-            'gender' =>$request['gender'],
+            'gender' => $request['gender'],
             'date_of_birth' => $request['birth-date'],
             'country_id' => $request['country_code']
         ]);
@@ -83,8 +95,8 @@ class AdminUserController extends Controller
     public function edit($id)
     {
         $students = Student::findOrFail($id);
-        $countries =Country::all();
-        return view('admin.edit',compact(['students','countries']));
+        $countries = Country::all();
+        return view('admin.edit', compact(['students', 'countries']));
     }
 
     /**
@@ -106,11 +118,11 @@ class AdminUserController extends Controller
         $name = $request->file('images')->getClientOriginalName();
         $request->file('images')->move('images', $name);
         $request['images'] = $name;
-        $upload =([
-            'images'=>$name,
-            'full_name' =>$request['full_name'],
+        $upload = ([
+            'images' => $name,
+            'full_name' => $request['full_name'],
             'email' => $request['email'],
-            'gender' =>$request['gender'],
+            'gender' => $request['gender'],
             'date_of_birth' => $request['birth-date'],
             'country_id' => $request['country_code']
         ]);
