@@ -19,7 +19,7 @@ class AdminUserController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
+        $students = Student::orderByDesc('created_at')->paginate(10);
 
         return view('admin.index', compact('students'));
     }
@@ -30,7 +30,7 @@ class AdminUserController extends Controller
         $data = Student::where('full_name', 'like', '%' . $search . '%')
 //                    ->orWhere('email', 'like', '%' . $search . '%')
                     ->orderBy('id', 'desc')
-                    ->get();
+                    ->get()->paginate(10);
         return json_decode($data);
     }
 

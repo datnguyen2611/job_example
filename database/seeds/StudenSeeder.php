@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Str;
 class StudenSeeder extends Seeder
 {
     /**
@@ -13,27 +13,11 @@ class StudenSeeder extends Seeder
     {
         DB::table('student')->insert([
             [
-                'full_name' => 'Nguyen van A',
-                'email'=>'abc@gmail.com',
-                'gender' =>'0',
-                'date_of_birth' =>'2010/09/10',
-                'country_id' =>'2',
-                'images' =>'default.png'
-            ],
-            [
-                'full_name' => 'Nguyen van B',
-                'email'=>'ss@gmail.com',
-                'gender' =>'0',
-                'date_of_birth' =>'2010/09/10',
-                'country_id' =>'1',
-                'images' =>'default.png'
-            ],
-            [
-                'full_name' => 'Nguyen nam C',
-                'email'=>'cc@gmail.com',
-                'gender' =>'0',
-                'date_of_birth' =>'2010/09/10',
-                'country_id' =>'1',
+                'full_name' => Str::random(20),
+                'email'=>Str::random(20).'@gmail.com',
+                'gender' =>rand(0,1),
+                'date_of_birth' =>rand(1990,2010).'/'.rand(1,12).'/'.rand(1,30),
+                'country_id' =>rand(1,10),
                 'images' =>'default.png'
             ],
         ]);

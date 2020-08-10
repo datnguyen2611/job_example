@@ -29,41 +29,44 @@
                     {{csrf_field()}}
                 </div>
             </div>
-            <div id="dyamic-popup">
-                @foreach($students as $student)
-                    <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
-                            <div class="card-body">
-                                <img class="images-studen img img-fluid" src="images/{{$student->images}}" alt="">
-                                <div class="form-button">
-                                    <a href="{{url('admin/'.$student->id.'/edit')}}" class="btn btn-primary button-fix">Chỉnh
-                                        Sửa</a>
-                                    <form action="{{url('admin/'.$student->id)}}" class="delete-method" method="POST">
-                                        {{csrf_field()}}
-                                        {{method_field('DELETE')}}
-                                        <input type="submit" name="submit"
-                                               class="btn btn-primary button-fix delete-form"
-                                               onclick="return confirm('Are you sure?')" value="xóa">
-                                    </form>
+
+            <div id="dyamic-popup" class="row">
+                    <div class="row">
+                        @foreach($students as $student)
+                            <div class="col-md-4">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="card-body">
+                                        <img class="images-studen img img-fluid" src="images/{{$student->images}}" alt="">
+                                        <div class="form-button">
+                                            <a href="{{url('admin/'.$student->id.'/edit')}}" class="btn btn-primary button-fix">Chỉnh
+                                                Sửa</a>
+                                            <form action="{{url('admin/'.$student->id)}}" class="delete-method" method="POST">
+                                                {{csrf_field()}}
+                                                {{method_field('DELETE')}}
+                                                <input type="submit" name="submit"
+                                                       class="btn btn-primary button-fix delete-form"
+                                                       onclick="return confirm('Are you sure?')" value="xóa">
+                                            </form>
+                                        </div>
+                                        <h5 class="card-title name">Họ và tên: {{$student->full_name}}</h5>
+                                        <h5 class="card-title name">Email: {{$student->email}}</h5>
+                                        <h5 class="card-title name">Giới tính: {{$student->gender ==0 ?"Nam" :"Nữ"}}</h5>
+                                        <h5 class="card-title name">Năm
+                                            sinh: {{date('d-m-Y', strtotime($student->date_of_birth))}}</h5>
+                                        <h5 class="card-title name">Quê Quán: {{$student->countries->name}}</h5>
+
+                                    </div>
                                 </div>
-                                <h5 class="card-title name">Họ và tên: {{$student->full_name}}</h5>
-                                <h5 class="card-title name">Email: {{$student->email}}</h5>
-                                <h5 class="card-title name">Giới tính: {{$student->gender ==0 ?"Nam" :"Nữ"}}</h5>
-                                <h5 class="card-title name">Năm
-                                    sinh: {{date('d-m-Y', strtotime($student->date_of_birth))}}</h5>
-                                <h5 class="card-title name">Quê Quán: {{$student->countries->name}}</h5>
-
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                @endforeach
-            </div>
-
+                    <div class="pagination-page">
+                        {!!$students->links()!!}
+                    </div>
+              </div>
         </div>
     </div>
-    {{--    <div class="pagination-page">--}}
-    {{--        {!!$students->links()!!}--}}
-    {{--    </div>--}}
+
 @endsection
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script !src="">
@@ -92,6 +95,7 @@
                     $('#dyamic-popup').html('');
                     $.each(res, function (index, value) {
                         tableRow =
+                            // '<div class="row">'+
                             '<div class="col-md-4">' +
                             '                   <div class="card" style="width: 18rem;">' +
                             '                       <div class="card-body">' +
@@ -111,8 +115,8 @@
                             '                           <h5 class="card-title name">Quê Quán: '+value.country_id+'</h5>' +
                             '                       </div>' +
                             '                   </div>' +
-                            '               </div>'
-                        ;
+                            // '               </div>'+
+                     '</div>'   ;
                         $('#dyamic-popup').append(tableRow);
                         console.log(tableRow);
                     });
