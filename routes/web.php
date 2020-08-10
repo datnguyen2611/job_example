@@ -21,4 +21,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('admin','Admin\AdminUserController');
-Route::get('/action','Admin\AdminUserController@action')->name('search');
