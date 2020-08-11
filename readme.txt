@@ -1,21 +1,21 @@
-Trong khoảng thời gian em nhận mail. Là khoảng thời gian gia đình em có chút việc . 
-Nên có hơi ít thời gian để chăm chút lại bài Test cho tốt .
+Trong khoảng thời gian em nhận mail. Là khoảng thời gian gia đình em có chút việc .
+Nên có hơi ít thời gian để chăm chút lại project tốt nhất .
 Em xin lỗi nếu project của em quá sơ sài hoặc không đủ tiêu chuẩn của công ty.
 Em xin rút kinh nghiệm. Và em cảm ơn công ty đã tạo điều kiện cho em làm bài test này !
- 
 
+(note: cần có composer và nodejs )
 Sau khi clone project:
 Bước 1:
-Trong laravel có file .env.example ->copy 
+Trong laravel có file .env.example ->copy
 và tạo riêng 1 file .env ở bên ngoài cùng cấp với file .env.example
 ->paste file .env.example sang ->.env
 
 cập nhập file .env như sau:
-DB_CONNECTION=mysql          
-DB_HOST=127.0.0.1            
-DB_PORT=3306                 
-DB_DATABASE=(tên database đã được tạo sẵn bằng phpmyadmin)      
-DB_USERNAME=root(xampp default sẽ là root )             
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=(tên database đã được tạo sẵn bằng phpmyadmin)
+DB_USERNAME=root(xampp default sẽ là root )
 DB_PASSWORD=  (pass database nếu không có mặc định sẽ rỗng)
 
 
