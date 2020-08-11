@@ -19,17 +19,17 @@ DB_USERNAME=root(xampp default sẽ là root )
 DB_PASSWORD=  (pass database nếu không có mặc định sẽ rỗng)
 
 
-Bước 2: generate key cho laravel
+Bước 2: command để install package trong laravel:
+composer install(or composer update)
+Bước 3: generate key cho laravel
 
 chạy đoạn mã: php my artisan key:generate
 
-Bước 3: command tạo ra bảng  database mà em đã tạo sẵn trong laravel:
+Bước 4: command tạo ra bảng  database mà em đã tạo sẵn trong laravel:
 
 php artisan migrate  (command tạo bảng database)
 php artisan db:seed  (command tạo dữ liệu database)
 
-Bước 4: command để install package trong laravel:
-composer install(or composer update)
 
 Bước 5: Vì laravel 7. sử dụng webpack để chạy JS và css nên phải khởi chạy command :
 command:  npm install
@@ -37,10 +37,10 @@ command: npm run dev(or npm run build or npm run watch)
 
 bước 6: Khởi chạy route:
 chạy command : php artisan serve( thường sẽ là http://localhost:8000)
-vào chorme và chạy (http://localhost:8000)/public/admin
-Nếu muốn check api chạy (http://localhost:8000)/action
+vào chorme và chạy (http://localhost:8000)/public/admin (nếu dùng xampp)
+Nếu muốn check api chạy (http://localhost:8000)/action (nếu dùng xampp)
 
-
+(note: nếu bị lỗi propety"name"->xin hãy check xem country đã có dữ liệu hay  chưa . nếu chưa xin chạy: php artisan db:seed --class=CountrySeeder)
 Em xin cảm ơn!
 
 
