@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-md-5 float-left">
+                <div class="col-md-6 float-left">
                     <div class="form-group">
                         <label for=""><h3>Search</h3></label>
                         <div class="md-form active-pink active-pink-2 mb-3 mt-0">
@@ -27,6 +27,13 @@
                         </div>
                     </div>
                     {{csrf_field()}}
+                </div>
+                <div class="col-md-6 float-right">
+                    <div class="form-button " style="padding-top: 7%">
+                        <a href="{{url('admin/create')}}" class="btn btn-primary button-fix green-button">
+                            create</a>
+
+                    </div>
                 </div>
             </div>
 
@@ -38,13 +45,13 @@
                                     <div class="card-body">
                                         <img class="images-studen img img-fluid" src="images/{{$student->images}}" alt="">
                                         <div class="form-button">
-                                            <a href="{{url('admin/'.$student->id.'/edit')}}" class="btn btn-primary button-fix">Chỉnh
+                                            <a href="{{url('admin/'.$student->id.'/edit')}}" class="btn btn-primary button-fix green-button">Chỉnh
                                                 Sửa</a>
                                             <form action="{{url('admin/'.$student->id)}}" class="delete-method" method="POST">
                                                 {{csrf_field()}}
                                                 {{method_field('DELETE')}}
                                                 <input type="submit" name="submit"
-                                                       class="btn btn-primary button-fix delete-form"
+                                                       class="btn btn-primary button-fix delete-form green-button"
                                                        onclick="return confirm('Are you sure?')" value="xóa">
                                             </form>
                                         </div>
@@ -100,18 +107,17 @@
                             '                       <div class="card-body">' +
                             '                           <img class="images-studen img img-fluid" src="images/' + value.images + '" alt="">' +
                             '                           <div class="form-button">' +
-                            '                               <a href="' + '\admin\/' + value.id + '\/edit\/' + '" class="btn btn-primary button-fix">Chỉnh Sửa</a>' +
+                            '                               <a href="' + '\admin\/' + value.id + '\/edit\/' + '" class="btn btn-primary button-fix green-button">Chỉnh Sửa</a>' +
                             '                               <form action="' + '\admin\/' + value.id + '" class="delete-method" method="POST">'+
                                                               ' {!! csrf_field() !!}'+
                                                           ' {!! method_field('DELETE') !!}'+
-                            '                                   <input type="submit" name="submit" class="btn btn-primary button-fix delete-form" onclick="return confirm(\'Are you sure?\')"  value="xóa">'+
+                            '                                   <input type="submit" name="submit" class="btn btn-primary button-fix delete-form green-button" onclick="return confirm(\'Are you sure?\')"  value="xóa">'+
                             '                               </form>'+
                         '                           </div>'+
                         '                           <h5 class="card-title name">Họ và tên: '+value.full_name +'</h5>'+
                         '                           <h5 class="card-title name">Email: '+value.email+'</h5>' +
                         '                           <h5 class="card-title name">Giới tính: '+ check_gender(value.gender)+'</h5>'+
                             '                           <h5 class="card-title name">Năm sinh:'+value.date_of_birth+' </h5>' +
-                            // '                           <h5 class="card-title name">Quê Quán: '+value.country_id+'</h5>' +
                             '                       </div>' +
                             '                   </div>' +
                      '</div>'   ;

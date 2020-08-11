@@ -49,7 +49,7 @@
         <div class="form-group">
             <div class="custom-file">
                 <button name="submit" type="submit" class="btn btn-primary button-fix">Update</button>
-                <a href="{{route('admin.index')}}" name="button" type="button" class="btn btn-primary button-fix">Cancel</a>
+                <a href="{{route('admin.index')}}" name="button" type="button" class="btn btn-primary button-fix ">Cancel</a>
             </div>
         </div>
 
